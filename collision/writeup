@@ -1,0 +1,11 @@
+Pretty straigt forward
+
+Command accepts 20 byte long password as command line argument
+
+To verify the password it treats the 20-byte string as 5 4-byte (32 bit binary) integers that must add to
+a specific value
+
+Simple division gives you the numbers required to add, then just send raw bytes as input
+
+
+./col "$(python3 -c 'import sys; sys.stdout.buffer.write(b"\xC8\xCE\xC5\x06"*4 + b"\xCC\xCE\xC5\x06")')"
